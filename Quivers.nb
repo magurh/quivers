@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[     78117,       1676]
-NotebookOptionsPosition[     75915,       1625]
-NotebookOutlinePosition[     76462,       1644]
-CellTagsIndexPosition[     76419,       1641]
+NotebookDataLength[     93711,       2066]
+NotebookOptionsPosition[     90164,       1996]
+NotebookOutlinePosition[     90711,       2015]
+CellTagsIndexPosition[     90668,       2012]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -28,11 +28,12 @@ Cell["Drawing Quivers", "Chapter",
 
 Cell[CellGroupData[{
 
-Cell["Algorithm", "Subchapter",
+Cell["Algorithms", "Subchapter",
  CellChangeTimes->{{3.7255283244776773`*^9, 3.725528347152596*^9}, {
    3.7255283926508713`*^9, 3.725528412827997*^9}, {3.8347414457091656`*^9, 
    3.8347414478186216`*^9}, {3.83481348777489*^9, 3.83481348992114*^9}, 
-   3.8945429941873083`*^9},ExpressionUUID->"f95585d2-5acf-4389-bb5d-\
+   3.8945429941873083`*^9, 
+   3.894811366038444*^9},ExpressionUUID->"f95585d2-5acf-4389-bb5d-\
 08c192ce9439"],
 
 Cell[CellGroupData[{
@@ -229,106 +230,114 @@ Cell[BoxData[{
   "\[IndentingNewLine]", "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{
-   RowBox[{"DrawQuiverInt", "[", "B_", "]"}], ":=", 
-   RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
-    RowBox[{
+   RowBox[{
+    RowBox[{"DrawQuiverInt", "[", "B_", "]"}], ":=", 
+    RowBox[{"Manipulate", "[", "\[IndentingNewLine]", 
      RowBox[{
-      RowBox[{"Data", "=", 
-       RowBox[{"Xmutations", "[", 
-        RowBox[{"B", ",", 
-         RowBox[{"Take", "[", 
-          RowBox[{"vector", ",", "no"}], "]"}]}], "]"}]}], ";", 
+      RowBox[{
+       RowBox[{"Data", "=", 
+        RowBox[{"Xmutations", "[", 
+         RowBox[{"B", ",", 
+          RowBox[{"Take", "[", 
+           RowBox[{"vector", ",", "no"}], "]"}]}], "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"gData", "=", 
+        RowBox[{"QuiverEdges", "[", "Data", "]"}]}], ";", 
+       "\[IndentingNewLine]", 
+       RowBox[{"n", " ", "=", " ", 
+        RowBox[{"Length", "[", "Data", "]"}]}], ";", "\[IndentingNewLine]", 
+       "\[IndentingNewLine]", 
+       RowBox[{"Column", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"GraphPlot", "[", 
+           RowBox[{"gData", ",", 
+            RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
+            RowBox[{"MultiedgeStyle", "\[Rule]", "True"}], ",", 
+            "\[IndentingNewLine]", 
+            RowBox[{"VertexLabeling", "\[Rule]", "True"}], ",", 
+            RowBox[{"VertexCoordinateRules", "\[Rule]", 
+             RowBox[{"Table", "[", 
+              RowBox[{
+               RowBox[{"i", "\[Rule]", 
+                RowBox[{"pts", "[", 
+                 RowBox[{"[", "i", "]"}], "]"}]}], ",", 
+               RowBox[{"{", 
+                RowBox[{"i", ",", "n"}], "}"}]}], "]"}]}], ",", 
+            RowBox[{"ImageSize", "\[Rule]", 
+             RowBox[{"{", 
+              RowBox[{"500", ",", "250"}], "}"}]}]}], "]"}], 
+          RowBox[{"(*", 
+           RowBox[{",", 
+            RowBox[{"Text", "@", 
+             RowBox[{"MatrixForm", "[", "Data", "]"}]}]}], "*)"}], "}"}], ",",
+          "Center", ",", "2"}], "]"}]}], ",", "\[IndentingNewLine]", 
       "\[IndentingNewLine]", 
-      RowBox[{"gData", "=", 
-       RowBox[{"QuiverEdges", "[", "Data", "]"}]}], ";", 
-      "\[IndentingNewLine]", 
-      RowBox[{"n", " ", "=", " ", 
-       RowBox[{"Length", "[", "Data", "]"}]}], ";", "\[IndentingNewLine]", 
-      "\[IndentingNewLine]", 
-      RowBox[{"Column", "[", 
+      RowBox[{"{", 
        RowBox[{
         RowBox[{"{", 
-         RowBox[{"GraphPlot", "[", 
-          RowBox[{"gData", ",", 
-           RowBox[{"DirectedEdges", "\[Rule]", "True"}], ",", 
-           RowBox[{"MultiedgeStyle", "\[Rule]", "True"}], ",", 
-           "\[IndentingNewLine]", 
-           RowBox[{"VertexLabeling", "\[Rule]", "True"}], ",", 
-           RowBox[{"VertexCoordinateRules", "\[Rule]", 
-            RowBox[{"Table", "[", 
-             RowBox[{
-              RowBox[{"i", "\[Rule]", 
-               RowBox[{"pts", "[", 
-                RowBox[{"[", "i", "]"}], "]"}]}], ",", 
-              RowBox[{"{", 
-               RowBox[{"i", ",", "n"}], "}"}]}], "]"}]}], ",", 
-           RowBox[{"ImageSize", "\[Rule]", 
-            RowBox[{"{", 
-             RowBox[{"500", ",", "250"}], "}"}]}]}], "]"}], 
-         RowBox[{"(*", 
-          RowBox[{",", 
-           RowBox[{"Text", "@", 
-            RowBox[{"MatrixForm", "[", "Data", "]"}]}]}], "*)"}], "}"}], ",", 
-        "Center", ",", "2"}], "]"}]}], ",", "\[IndentingNewLine]", 
-     "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
+         RowBox[{"vector", ",", 
+          RowBox[{"Table", "[", 
+           RowBox[{"0", ",", 
+            RowBox[{"{", "10", "}"}]}], "]"}]}], "}"}], ",", 
+        RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
+      "\[IndentingNewLine]", "\[IndentingNewLine]", 
+      RowBox[{"Row", "[", 
        RowBox[{"{", 
-        RowBox[{"vector", ",", 
-         RowBox[{"Table", "[", 
-          RowBox[{"0", ",", 
-           RowBox[{"{", "10", "}"}]}], "]"}]}], "}"}], ",", 
-       RowBox[{"ControlType", "\[Rule]", "None"}]}], "}"}], ",", 
-     "\[IndentingNewLine]", "\[IndentingNewLine]", 
-     RowBox[{"Row", "[", 
-      RowBox[{"{", 
-       RowBox[{
-        RowBox[{"Spacer", "[", "25", "]"}], ",", 
-        RowBox[{"Control", "@", 
-         RowBox[{"{", 
-          RowBox[{
-           RowBox[{"{", 
-            RowBox[{"no", ",", "4", ",", "\"\<Number of Mutations\>\""}], 
-            "}"}], ",", "1", ",", "10", ",", "1"}], "}"}]}]}], "}"}], "]"}], 
-     ",", "\[IndentingNewLine]", "\n", 
-     RowBox[{"Dynamic", "[", 
-      RowBox[{"Panel", "[", 
-       RowBox[{
-        RowBox[{"Row", "[", 
-         RowBox[{"Outer", "[", 
-          RowBox[{
+        RowBox[{
+         RowBox[{"Spacer", "[", "25", "]"}], ",", 
+         RowBox[{"Control", "@", 
+          RowBox[{"{", 
            RowBox[{
-            RowBox[{"PopupMenu", "[", 
-             RowBox[{
-              RowBox[{"Dynamic", "[", 
-               RowBox[{"vector", "[", 
-                RowBox[{"[", "#1", "]"}], "]"}], "]"}], ",", 
-              RowBox[{"Table", "[", 
-               RowBox[{"i", ",", 
-                RowBox[{"{", 
-                 RowBox[{"i", ",", "0", ",", "n", ",", "1"}], "}"}]}], 
-               "]"}]}], "]"}], "&"}], ",", 
-           RowBox[{"Range", "[", "no", "]"}]}], "]"}], "]"}], ",", 
-        "\"\<Mutation Sequence\>\""}], "]"}], "]"}], ",", 
-     "\[IndentingNewLine]", 
-     RowBox[{"{", 
-      RowBox[{
+            RowBox[{"{", 
+             RowBox[{"no", ",", "4", ",", "\"\<Number of Mutations\>\""}], 
+             "}"}], ",", "1", ",", "10", ",", "1"}], "}"}]}]}], "}"}], "]"}], 
+      ",", "\[IndentingNewLine]", "\n", 
+      RowBox[{"Dynamic", "[", 
+       RowBox[{"Panel", "[", 
+        RowBox[{
+         RowBox[{"Row", "[", 
+          RowBox[{"Outer", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"PopupMenu", "[", 
+              RowBox[{
+               RowBox[{"Dynamic", "[", 
+                RowBox[{"vector", "[", 
+                 RowBox[{"[", "#1", "]"}], "]"}], "]"}], ",", 
+               RowBox[{"Table", "[", 
+                RowBox[{"i", ",", 
+                 RowBox[{"{", 
+                  RowBox[{"i", ",", "0", ",", "n", ",", "1"}], "}"}]}], 
+                "]"}]}], "]"}], "&"}], ",", 
+            RowBox[{"Range", "[", "no", "]"}]}], "]"}], "]"}], ",", 
+         "\"\<Mutation Sequence\>\""}], "]"}], "]"}], ",", 
+      "\[IndentingNewLine]", 
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"{", 
+         RowBox[{"pts", ",", 
+          RowBox[{"CirclePoints", "[", "n", "]"}]}], "}"}], ",", "Locator"}], 
+       "}"}], ",", 
+      RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
+      RowBox[{"ContentSize", "\[Rule]", 
        RowBox[{"{", 
-        RowBox[{"pts", ",", 
-         RowBox[{"CirclePoints", "[", "n", "]"}]}], "}"}], ",", "Locator"}], 
-      "}"}], ",", 
-     RowBox[{"SaveDefinitions", "\[Rule]", "True"}], ",", 
-     RowBox[{"ContentSize", "\[Rule]", 
-      RowBox[{"{", 
-       RowBox[{"600", ",", "300"}], "}"}]}], ",", 
-     RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
-      RowBox[{"{", 
-       RowBox[{"vector", ",", "no", ",", "pts"}], "}"}]}]}], 
-    "\[IndentingNewLine]", "\t", "]"}]}], ";"}]}], "Input",
+        RowBox[{"600", ",", "300"}], "}"}]}], ",", 
+      RowBox[{"TrackedSymbols", "\[RuleDelayed]", 
+       RowBox[{"{", 
+        RowBox[{"vector", ",", "no", ",", "pts"}], "}"}]}]}], 
+     "\[IndentingNewLine]", "\t", "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]"}], "Input",
  CellChangeTimes->{{3.8348256476571174`*^9, 3.8348257392367153`*^9}, {
    3.8348258214157505`*^9, 3.8348258215692635`*^9}, 3.8348258611630287`*^9, {
-   3.8854444482791185`*^9, 3.8854444485101643`*^9}},
- CellLabel->"In[3]:=",ExpressionUUID->"d94711c3-376e-4dbd-a5f5-26b444cbba5a"],
+   3.8854444482791185`*^9, 3.8854444485101643`*^9}, {3.8948115710307407`*^9, 
+   3.894811571313982*^9}},
+ CellLabel->"In[1]:=",ExpressionUUID->"d94711c3-376e-4dbd-a5f5-26b444cbba5a"],
+
+Cell["For multiple mutations, we define Qmutations[]:", "Text",
+ CellChangeTimes->{{3.894811582538212*^9, 
+  3.894811590938594*^9}},ExpressionUUID->"1706c88f-44c5-463b-8494-\
+c27eaea1e377"],
 
 Cell[BoxData[
  RowBox[{
@@ -376,8 +385,226 @@ Cell[BoxData[
     "]"}]}], ";"}]], "Input",
  CellChangeTimes->{
   3.886601387885873*^9, {3.8866016728191676`*^9, 3.8866016886795645`*^9}, {
-   3.8866017198737335`*^9, 3.8866017216761875`*^9}},
- CellLabel->"In[8]:=",ExpressionUUID->"f3e731be-1b2e-4e0d-818c-4044e9012181"]
+   3.8866017198737335`*^9, 3.8866017216761875`*^9}, {3.894811569579938*^9, 
+   3.8948115767704563`*^9}},
+ CellLabel->"In[6]:=",ExpressionUUID->"f3e731be-1b2e-4e0d-818c-4044e9012181"]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Drawing Quiver from BPS states", "Subsection",
+ CellChangeTimes->{{3.725528439462122*^9, 3.725528451270318*^9}, {
+  3.834741449876209*^9, 3.83474145049336*^9}, {3.834741487922885*^9, 
+  3.8347415006940155`*^9}, {3.8347427054129734`*^9, 3.834742708525757*^9}, {
+  3.8348199266218433`*^9, 
+  3.8348199296653967`*^9}},ExpressionUUID->"20f66304-d6f7-43d7-8068-\
+ca5657afd7e0"],
+
+Cell["\<\
+Given a basis of BPS states, the intersection matrix is given by the Dirac \
+pairing of the charges.\
+\>", "Text",
+ CellChangeTimes->{{3.8948113776739216`*^9, 
+  3.894811407891574*^9}},ExpressionUUID->"b170ca7d-8fbe-4051-9b6f-\
+b53d957a470d"],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"Clear", "[", 
+    RowBox[{"j", ",", "Q", ",", "Qnew", ",", "k", ",", "n", ",", "l"}], "]"}],
+    ";"}], "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"DiracPairing", "[", 
+    RowBox[{"x_", ",", "y_"}], "]"}], ":=", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"x", "[", 
+      RowBox[{"[", "1", "]"}], "]"}], 
+     RowBox[{"y", "[", 
+      RowBox[{"[", "2", "]"}], "]"}]}], "-", 
+    RowBox[{
+     RowBox[{"x", "[", 
+      RowBox[{"[", "2", "]"}], "]"}], 
+     RowBox[{"y", "[", 
+      RowBox[{"[", "1", "]"}], "]"}]}]}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"IntersectionMatrix", "[", 
+    RowBox[{"n_", ",", "Quiver_"}], "]"}], ":=", 
+   RowBox[{"Table", "[", 
+    RowBox[{
+     RowBox[{"DiracPairing", "[", 
+      RowBox[{
+       RowBox[{"Quiver", "[", 
+        RowBox[{"[", "i", "]"}], "]"}], ",", 
+       RowBox[{"Quiver", "[", 
+        RowBox[{"[", "j", "]"}], "]"}]}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", "n"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"j", ",", "1", ",", "n"}], "}"}]}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.8368034262323284`*^9, 3.836803533284891*^9}, {
+   3.836803564000111*^9, 3.836803565341699*^9}, {3.836803599031102*^9, 
+   3.8368037171200814`*^9}, {3.836803774052805*^9, 3.8368039123305187`*^9}, {
+   3.83680394871145*^9, 3.8368039756388044`*^9}, {3.836804323299715*^9, 
+   3.836804324371634*^9}, {3.8368043915971665`*^9, 3.8368044038778467`*^9}, {
+   3.8368044482795663`*^9, 3.8368044486384315`*^9}, {3.836804667654614*^9, 
+   3.836804671165326*^9}, {3.8368047727692738`*^9, 3.8368047895445433`*^9}, {
+   3.836804846558447*^9, 3.836805008022485*^9}, 3.83680510232444*^9, {
+   3.8368051788721943`*^9, 3.8368052829684095`*^9}, {3.8368053439512053`*^9, 
+   3.8368053591088333`*^9}, {3.836805391978519*^9, 3.8368053922248487`*^9}, {
+   3.8368181827564516`*^9, 3.8368181858006516`*^9}, {3.837427058311471*^9, 
+   3.8374271866638174`*^9}, 3.8374273861739483`*^9, 3.838713747908963*^9, {
+   3.838714274744439*^9, 3.8387142773467183`*^9}, {3.886601616982342*^9, 
+   3.886601626872153*^9}, {3.8948115172407775`*^9, 3.8948115202883735`*^9}},
+ CellLabel->"In[7]:=",ExpressionUUID->"90e87d54-f6fc-466c-a691-6048cd1261e3"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", " ", 
+   RowBox[{
+    RowBox[{"Modified", " ", "algorithm", " ", "for", " ", 
+     RowBox[{"clockwise", "/", "counter"}]}], "-", "clockwise"}], " ", "*)"}],
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{
+     RowBox[{"OneMutationForCharges", "[", 
+      RowBox[{"Q_", ",", "k_", ",", "r_"}], "]"}], ":=", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"n", "=", 
+          RowBox[{"Length", "[", "Q", "]"}]}], ",", 
+         RowBox[{"Qnew", "=", 
+          RowBox[{"ConstantArray", "[", 
+           RowBox[{
+            RowBox[{"{", "}"}], ",", 
+            RowBox[{"Length", "[", "Q", "]"}]}], "]"}]}], ",", "j"}], "}"}], 
+       ",", "\[IndentingNewLine]", "\n", "\t", 
+       RowBox[{
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"j", "=", "1"}], ",", 
+          RowBox[{"j", "\[LessEqual]", "n"}], ",", 
+          RowBox[{"j", "++"}], ",", "\[IndentingNewLine]", "\t", 
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{
+             RowBox[{
+              SuperscriptBox[
+               RowBox[{"(", 
+                RowBox[{"-", "1"}], ")"}], 
+               RowBox[{"r", "+", "1"}]], 
+              RowBox[{"DiracPairing", "[", 
+               RowBox[{
+                RowBox[{"Q", "[", 
+                 RowBox[{"[", "j", "]"}], "]"}], ",", " ", 
+                RowBox[{"Q", "[", 
+                 RowBox[{"[", "k", "]"}], "]"}]}], "]"}]}], ">", "0"}], ",", 
+            " ", "\[IndentingNewLine]", "\t", 
+            RowBox[{
+             RowBox[{"Qnew", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], " ", "=", " ", 
+             RowBox[{
+              RowBox[{"Q", "[", 
+               RowBox[{"[", "j", "]"}], "]"}], "+", 
+              RowBox[{
+               SuperscriptBox[
+                RowBox[{"(", 
+                 RowBox[{"-", "1"}], ")"}], 
+                RowBox[{"r", "+", "1"}]], 
+               RowBox[{"DiracPairing", "[", 
+                RowBox[{
+                 RowBox[{"Q", "[", 
+                  RowBox[{"[", "j", "]"}], "]"}], ",", " ", 
+                 RowBox[{"Q", "[", 
+                  RowBox[{"[", "k", "]"}], "]"}]}], "]"}], " ", 
+               RowBox[{"Q", "[", 
+                RowBox[{"[", "k", "]"}], "]"}]}]}]}], ",", " ", 
+            RowBox[{"(*", " ", 
+             RowBox[{
+              RowBox[{"r", " ", "=", " ", 
+               RowBox[{"0", " ", "or", " ", "1"}]}], ",", " ", 
+              RowBox[{
+               RowBox[{"for", " ", "clockwise", " ", "or", " ", "counter"}], 
+               "-", 
+               RowBox[{"clockwise", " ", "rotations"}]}]}], " ", "*)"}], 
+            "\[IndentingNewLine]", "\t", 
+            RowBox[{
+             RowBox[{"Qnew", "[", 
+              RowBox[{"[", "j", "]"}], "]"}], "  ", "=", " ", 
+             RowBox[{"Q", "[", 
+              RowBox[{"[", "j", "]"}], "]"}]}]}], "\[IndentingNewLine]", "\t",
+            "]"}]}], "\[IndentingNewLine]", "\t", "]"}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{
+         RowBox[{"Qnew", "[", 
+          RowBox[{"[", "k", "]"}], "]"}], " ", "=", " ", 
+         RowBox[{"-", " ", 
+          RowBox[{"Q", "[", 
+           RowBox[{"[", "k", "]"}], "]"}]}]}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "Qnew"}]}], "\[IndentingNewLine]", "]"}]}], 
+    ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"MutationsForCharges", "[", 
+      RowBox[{"Q_", ",", "pos_"}], "]"}], ":=", "\[IndentingNewLine]", "\t\t", 
+     RowBox[{"Module", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"k0", " ", "=", " ", 
+          RowBox[{"Length", "[", "pos", "]"}]}], ",", 
+         RowBox[{"Qnew", "=", 
+          RowBox[{"ConstantArray", "[", 
+           RowBox[{
+            RowBox[{"{", "}"}], ",", 
+            RowBox[{
+             RowBox[{"Length", "[", "pos", "]"}], "+", "1"}]}], "]"}]}], ",", 
+         "l"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"Qnew", "[", 
+          RowBox[{"[", "1", "]"}], "]"}], "=", "Q"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"For", "[", 
+         RowBox[{
+          RowBox[{"l", "=", "1"}], ",", " ", 
+          RowBox[{"l", "\[LessEqual]", " ", "k0"}], ",", " ", 
+          RowBox[{"l", "++"}], ",", "\[IndentingNewLine]", "\t", 
+          RowBox[{
+           RowBox[{"Qnew", " ", "[", 
+            RowBox[{"[", 
+             RowBox[{"l", "+", "1"}], "]"}], "]"}], "=", 
+           RowBox[{"OneMutationForCharges", "[", 
+            RowBox[{
+             RowBox[{"Qnew", "[", 
+              RowBox[{"[", "l", "]"}], "]"}], ",", 
+             RowBox[{"pos", "[", 
+              RowBox[{"[", 
+               RowBox[{"l", ",", "1"}], "]"}], "]"}], ",", 
+             RowBox[{"pos", "[", 
+              RowBox[{"[", 
+               RowBox[{"l", ",", "2"}], "]"}], "]"}]}], "]"}]}]}], 
+         "\[IndentingNewLine]", "\t", "]"}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", "\t", 
+        RowBox[{"Qnew", "[", 
+         RowBox[{"[", 
+          RowBox[{"k0", "+", "1"}], "]"}], "]"}]}]}], "\[IndentingNewLine]", 
+      "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.8374271922942944`*^9, 3.837427192535595*^9}, {
+   3.8374272318338737`*^9, 3.8374272630901823`*^9}, {3.837427437278762*^9, 
+   3.8374274382701693`*^9}, 3.8374276297028837`*^9, {3.837427731545471*^9, 
+   3.8374277334510417`*^9}, {3.8387142467669597`*^9, 3.838714257786541*^9}, {
+   3.8454658761092396`*^9, 3.8454659238339243`*^9}, {3.886601636351998*^9, 
+   3.8866016480776987`*^9}, {3.894811522138235*^9, 3.8948115496912575`*^9}},
+ CellLabel->"In[10]:=",ExpressionUUID->"a24336e1-052a-41c1-8361-502f9cf0cad5"]
 }, Closed]]
 }, Open  ]],
 
@@ -402,11 +629,16 @@ Cell["The Kronecker quiver", "Subsection",
   3.894542765434997*^9}},ExpressionUUID->"7076e226-7973-45e9-86d7-\
 0e0ed3f2a3cc"],
 
+Cell["We draw the quiver from the intersection matrix B1:", "Text",
+ CellChangeTimes->{{3.894811619102928*^9, 
+  3.8948116348025064`*^9}},ExpressionUUID->"93d1f786-6330-486d-ab35-\
+f2a791a7f383"],
+
 Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"Q1", "=", 
+  RowBox[{"B1", "=", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
@@ -415,7 +647,7 @@ Cell[BoxData[{
       RowBox[{
        RowBox[{"-", "2"}], ",", "0"}], "}"}]}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"DrawQuiverInt", "[", "Q1", "]"}]}], "Input",
+ RowBox[{"DrawQuiverInt", "[", "B1", "]"}]}], "Input",
  CellChangeTimes->{{3.8348191564086084`*^9, 3.8348191660295334`*^9}, {
    3.8348257759325986`*^9, 3.8348257910613327`*^9}, {3.8367151445940523`*^9, 
    3.8367151658581734`*^9}, {3.836745282332653*^9, 3.8367452834627023`*^9}, {
@@ -428,14 +660,15 @@ Cell[BoxData[{
    3.8387118193252115`*^9}, {3.8387120078345976`*^9, 
    3.8387120092020197`*^9}, {3.8387139068840246`*^9, 
    3.8387139078090267`*^9}, {3.838714649550202*^9, 3.838714650311048*^9}, {
-   3.8945427172463083`*^9, 3.8945427285909586`*^9}},
- CellLabel->"In[9]:=",ExpressionUUID->"18c854bd-2a12-4e19-9b16-45a99b411df1"],
+   3.8945427172463083`*^9, 3.8945427285909586`*^9}, {3.894811631368854*^9, 
+   3.8948116316336746`*^9}, {3.8948116839279213`*^9, 3.8948116841798487`*^9}},
+ CellLabel->"In[20]:=",ExpressionUUID->"18c854bd-2a12-4e19-9b16-45a99b411df1"],
 
 Cell[BoxData[
  TagBox[
   StyleBox[
    DynamicModuleBox[{$CellContext`no$$ = 4, $CellContext`pts$$ = {{1, 0}, {-1,
-     0}}, $CellContext`vector$$ = {1, 2, 0, 0, 0, 0, 0, 0, 0, 0}, 
+     0}}, $CellContext`vector$$ = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, 
     Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
     Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
     1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
@@ -522,8 +755,10 @@ $CellContext`b])
           Part[$CellContext`\[Zeta]2dd, $CellContext`i, $CellContext`b], \
 {$CellContext`i, 1, 2}, {$CellContext`a, 1, 4}, {$CellContext`b, 1, 
            4}], $CellContext`\[Zeta]1UU = {{0, 0, 0, 0}, {0, 0, 0, 
-        1}}, $CellContext`\[Gamma][1] = {{0, 0, 0, 1}, {0, 0, 1, 0}, {0, 1, 0,
-         0}, {1, 0, 0, 0}}, $CellContext`\[Gamma][
+        1}}, $CellContext`a = {{1, 2, 3, 4}, {4, 5, 6, 7}, {8, 9, 10, 11}, {
+        12, 13, 14, 15}}, $CellContext`\[Gamma] = {
+         Sqrt[2], 0}, $CellContext`\[Gamma][1] = {{0, 0, 0, 1}, {0, 0, 1, 
+        0}, {0, 1, 0, 0}, {1, 0, 0, 0}}, $CellContext`\[Gamma][
         2] = {{0, 0, 0, -I}, {0, 0, I, 0}, {0, -I, 0, 0}, {
          I, 0, 0, 0}}, $CellContext`\[Gamma][3] = {{0, 0, 1, 0}, {0, 0, 
         0, -1}, {1, 0, 0, 0}, {0, -1, 0, 0}}, $CellContext`\[Gamma][
@@ -709,7 +944,8 @@ $CellContext`p, $CellContext`q] = (1/Factorial[4]) (Dot[
             $CellContext`\[Gamma][$CellContext`p], 
             $CellContext`\[Gamma][$CellContext`m], 
             $CellContext`\[Gamma][$CellContext`n]]))), $CellContext`n = 
-       2, $CellContext`\[Zeta]2dd = {{0, 0, 0, 0}, {0, 0, 0, 
+       2, $CellContext`b = 
+       1, $CellContext`\[Zeta]2dd = {{0, 0, 0, 0}, {0, 0, 0, 
         1}}, $CellContext`Xmutation[
          Pattern[$CellContext`seed, 
           Blank[]], 
@@ -749,8 +985,7 @@ $CellContext`B = {{0, -1, 0, 1, 0, 0}, {1, 0, 0, -1, 0, 1}, {0, 0, 0, 1, -1,
 $CellContext`k], -Part[$CellContext`B, $CellContext`i, $CellContext`j], 
            Part[$CellContext`B, $CellContext`i, $CellContext`j] + Sign[
               Part[$CellContext`B, $CellContext`i, $CellContext`k]] 
-            Max[{
-              0, Part[$CellContext`B, $CellContext`i, $CellContext`k] 
+            Max[{0, Part[$CellContext`B, $CellContext`i, $CellContext`k] 
                Part[$CellContext`B, $CellContext`k, $CellContext`j]}]], \
 {$CellContext`i, 
            Length[
@@ -799,10 +1034,47 @@ $CellContext`edges]}; Typeset`initDone$$ = True),
    3.836806039273991*^9, 3.8368065540480323`*^9, 3.8374276557014046`*^9, {
    3.838711803466218*^9, 3.8387118197354345`*^9}, 3.8387120099821568`*^9, {
    3.838713902966176*^9, 3.8387139081155105`*^9}, 3.8387146507822466`*^9, 
-   3.859623335606702*^9, 3.8945428573498707`*^9},
- CellLabel->"Out[10]=",ExpressionUUID->"5a64c549-4253-4e98-96a6-b510c317349d"]
-}, Open  ]]
+   3.859623335606702*^9, 3.8945428573498707`*^9, {3.8948116134596653`*^9, 
+   3.894811636277162*^9}, {3.894811684661968*^9, 3.8948116864194307`*^9}},
+ CellLabel->"Out[21]=",ExpressionUUID->"4fc55c6d-896a-47b5-b5a3-019e32cc53e3"]
 }, Open  ]],
+
+Cell["We can get the same result from a basis of BPS states:", "Text",
+ CellChangeTimes->{{3.894811659138026*^9, 
+  3.8948116667681246`*^9}},ExpressionUUID->"62fe74d7-a06c-4ea9-8721-\
+4c988f6a7fc6"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"Q1", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"1", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "1"}], ",", "2"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Qmat", "=", 
+  RowBox[{"IntersectionMatrix", "[", 
+   RowBox[{"2", ",", "Q1"}], "]"}]}]}], "Input",
+ CellChangeTimes->{3.8948116707827744`*^9},
+ CellLabel->"In[16]:=",ExpressionUUID->"d6fb8e12-5625-473c-913f-3dfdc569f8d2"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"0", ",", "2"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "2"}], ",", "0"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{3.894811671169015*^9},
+ CellLabel->"Out[17]=",ExpressionUUID->"51aed734-4fac-4fad-9e67-f3a6d03f24cd"]
+}, Open  ]]
+}, Closed]],
 
 Cell[CellGroupData[{
 
@@ -822,7 +1094,7 @@ Cell[CellGroupData[{
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"Q2", "=", 
+  RowBox[{"B2", "=", 
    RowBox[{"{", 
     RowBox[{
      RowBox[{"{", 
@@ -835,9 +1107,10 @@ Cell[BoxData[{
       RowBox[{"3", ",", 
        RowBox[{"-", "3"}], ",", "0"}], "}"}]}], "}"}]}], 
   ";"}], "\[IndentingNewLine]", 
- RowBox[{"DrawQuiverInt", "[", "Q2", "]"}]}], "Input",
- CellChangeTimes->{{3.8945428693832016`*^9, 3.8945428887543497`*^9}},
- CellLabel->"In[13]:=",ExpressionUUID->"5514bb65-fc22-41ea-9887-c18217c0db0e"],
+ RowBox[{"DrawQuiverInt", "[", "B2", "]"}]}], "Input",
+ CellChangeTimes->{{3.8945428693832016`*^9, 3.8945428887543497`*^9}, {
+  3.894811678867365*^9, 3.8948116809843407`*^9}},
+ CellLabel->"In[24]:=",ExpressionUUID->"5514bb65-fc22-41ea-9887-c18217c0db0e"],
 
 Cell[BoxData[
  TagBox[
@@ -938,419 +1211,10 @@ $CellContext`b])
           Part[$CellContext`\[Zeta]2dd, $CellContext`i, $CellContext`b], \
 {$CellContext`i, 1, 2}, {$CellContext`a, 1, 4}, {$CellContext`b, 1, 
            4}], $CellContext`\[Zeta]1UU = {{0, 0, 0, 0}, {0, 0, 0, 
-        1}}, $CellContext`\[Gamma][1] = {{0, 0, 0, 1}, {0, 0, 1, 0}, {0, 1, 0,
-         0}, {1, 0, 0, 0}}, $CellContext`\[Gamma][
-        2] = {{0, 0, 0, -I}, {0, 0, I, 0}, {0, -I, 0, 0}, {
-         I, 0, 0, 0}}, $CellContext`\[Gamma][3] = {{0, 0, 1, 0}, {0, 0, 
-        0, -1}, {1, 0, 0, 0}, {0, -1, 0, 0}}, $CellContext`\[Gamma][
-        4] = {{0, 0, I, 0}, {0, 0, 0, I}, {-I, 0, 0, 0}, {
-         0, -I, 0, 0}}, $CellContext`\[Gamma][5] = {{1, 0, 0, 0}, {0, 1, 0, 
-        0}, {0, 0, -1, 0}, {0, 0, 0, -1}}, $CellContext`\[Gamma][5, 1, 1] = {{
-        0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 
-        0}}, $CellContext`\[Gamma][
-        5, 1, 2] = {{I, 0, 0, 0}, {0, -I, 0, 0}, {0, 0, -I, 0}, {
-         0, 0, 0, I}}, $CellContext`\[Gamma][5, 1, 3] = {{0, -1, 0, 0}, {1, 0,
-         0, 0}, {0, 0, 0, 1}, {0, 0, -1, 0}}, $CellContext`\[Gamma][
-        5, 1, 4] = {{0, -I, 0, 0}, {-I, 0, 0, 0}, {0, 0, 0, -I}, {
-         0, 0, -I, 0}}, $CellContext`\[Gamma][5, 1, 5] = {{0, 0, 0, 0}, {0, 0,
-         0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
-        5, 2, 1] = {{-I, 0, 0, 0}, {0, I, 0, 0}, {0, 0, I, 0}, {
-         0, 0, 0, -I}}, $CellContext`\[Gamma][5, 2, 2] = {{0, 0, 0, 0}, {0, 0,
-         0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
-        5, 2, 3] = {{0, I, 0, 0}, {I, 0, 0, 0}, {0, 0, 0, -I}, {
-         0, 0, -I, 0}}, $CellContext`\[Gamma][5, 2, 4] = {{0, -1, 0, 0}, {1, 
-        0, 0, 0}, {0, 0, 0, -1}, {0, 0, 1, 0}}, $CellContext`\[Gamma][
-        5, 2, 5] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 
-        0}}, $CellContext`\[Gamma][5, 3, 1] = {{0, 1, 0, 0}, {-1, 0, 0, 0}, {
-        0, 0, 0, -1}, {0, 0, 1, 0}}, $CellContext`\[Gamma][
-        5, 3, 2] = {{0, -I, 0, 0}, {-I, 0, 0, 0}, {0, 0, 0, I}, {
-         0, 0, I, 0}}, $CellContext`\[Gamma][5, 3, 3] = {{0, 0, 0, 0}, {0, 0, 
-        0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
-        5, 3, 4] = {{-I, 0, 0, 0}, {0, I, 0, 0}, {0, 0, -I, 0}, {
-         0, 0, 0, I}}, $CellContext`\[Gamma][5, 3, 5] = {{0, 0, 0, 0}, {0, 0, 
-        0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
-        5, 4, 1] = {{0, I, 0, 0}, {I, 0, 0, 0}, {0, 0, 0, I}, {
-         0, 0, I, 0}}, $CellContext`\[Gamma][5, 4, 2] = {{0, 1, 0, 0}, {-1, 0,
-         0, 0}, {0, 0, 0, 1}, {0, 0, -1, 0}}, $CellContext`\[Gamma][
-        5, 4, 3] = {{I, 0, 0, 0}, {0, -I, 0, 0}, {0, 0, I, 0}, {
-         0, 0, 0, -I}}, $CellContext`\[Gamma][5, 4, 4] = {{0, 0, 0, 0}, {0, 0,
-         0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
-        5, 4, 5] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 
-        0}}, $CellContext`\[Gamma][5, 5, 1] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0,
-         0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][5, 5, 2] = {{0, 0, 0, 
-        0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
-        5, 5, 3] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 
-        0}}, $CellContext`\[Gamma][5, 5, 4] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0,
-         0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][5, 5, 5] = {{0, 0, 0, 
-        0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
-         Pattern[$CellContext`m, 
-          Blank[]], 
-         Pattern[$CellContext`n, 
-          
-          Blank[]]] := ($CellContext`\[Gamma][$CellContext`m, $CellContext`n] = \
-(1/2) (Dot[
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`n]] - Dot[
-           $CellContext`\[Gamma][$CellContext`n], 
-           $CellContext`\[Gamma][$CellContext`m]])), $CellContext`\[Gamma][
-         Pattern[$CellContext`m, 
-          Blank[]], 
-         Pattern[$CellContext`n, 
-          Blank[]], 
-         Pattern[$CellContext`p, 
-          Blank[]]] := ($CellContext`\[Gamma][$CellContext`m, $CellContext`n, 
-          $CellContext`p] = (1/Factorial[3]) (Dot[
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`p]] - Dot[
-           $CellContext`\[Gamma][$CellContext`m], 
-           $CellContext`\[Gamma][$CellContext`p], 
-           $CellContext`\[Gamma][$CellContext`n]] - Dot[
-           $CellContext`\[Gamma][$CellContext`n], 
-           $CellContext`\[Gamma][$CellContext`m], 
-           $CellContext`\[Gamma][$CellContext`p]] + Dot[
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`m]] - Dot[
-           $CellContext`\[Gamma][$CellContext`p], 
-           $CellContext`\[Gamma][$CellContext`n], 
-           $CellContext`\[Gamma][$CellContext`m]] + Dot[
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`n]])), $CellContext`\[Gamma][
-         Pattern[$CellContext`m, 
-          Blank[]], 
-         Pattern[$CellContext`n, 
-          Blank[]], 
-         Pattern[$CellContext`p, 
-          Blank[]], 
-         Pattern[$CellContext`q, 
-          
-          Blank[]]] := ($CellContext`\[Gamma][$CellContext`m, $CellContext`n, \
-$CellContext`p, $CellContext`q] = (1/Factorial[4]) (Dot[
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`q]] + Dot[
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`n]] + Dot[
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`p]] + Dot[
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`p]] + Dot[
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`q]] + Dot[
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`m]] + Dot[
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`q]] + Dot[
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`m]] + Dot[
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`n]] + Dot[
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`n]] + Dot[
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`p]] + Dot[
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`m]] - (Dot[
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`p]] + Dot[
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`q]] + Dot[
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`n]] + Dot[
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`q]] + Dot[
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`m]] + Dot[
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`p]] + Dot[
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`n]] + Dot[
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`q]] + Dot[
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`m]] + Dot[
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`p]] + Dot[
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`n], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`m]] + Dot[
-            $CellContext`\[Gamma][$CellContext`q], 
-            $CellContext`\[Gamma][$CellContext`p], 
-            $CellContext`\[Gamma][$CellContext`m], 
-            $CellContext`\[Gamma][$CellContext`n]]))), $CellContext`n = 
-       3, $CellContext`\[Zeta]2dd = {{0, 0, 0, 0}, {0, 0, 0, 
-        1}}, $CellContext`Xmutation[
-         Pattern[$CellContext`seed, 
-          Blank[]], 
-         Pattern[$CellContext`k, 
-          Blank[Integer]]] := 
-       Module[{$CellContext`B = $CellContext`seed, $CellContext`n = Length[
-            
-            Part[$CellContext`seed, 1, 
-             1]], $CellContext`pos, $CellContext`neg}, 
-         If[
-          Or[$CellContext`k == 0, $CellContext`k > Length[
-             Part[$CellContext`B, 1]]], $CellContext`B, $CellContext`pos = 
-           DeleteCases[
-             Table[
-              If[
-              Part[$CellContext`B, $CellContext`i, $CellContext`k] > 
-               0, $CellContext`i], {$CellContext`i, $CellContext`n}], 
-             Null]; $CellContext`neg = DeleteCases[
-             Table[
-              If[
-              Part[$CellContext`B, $CellContext`i, $CellContext`k] < 
-               0, $CellContext`i], {$CellContext`i, $CellContext`n}], 
-             Null]; $CellContext`Qmutation[$CellContext`B, $CellContext`k]]], \
-$CellContext`B = {{0, -1, 0, 1, 0, 0}, {1, 0, 0, -1, 0, 1}, {0, 0, 0, 1, -1, 
-        0}, {-1, 1, -1, 0, 1, -1}, {0, 0, 1, -1, 0, 1}, {0, -1, 0, 1, -1, 
-        0}}, $CellContext`Qmutation[
-         Pattern[$CellContext`B, 
-          Blank[]], 
-         Pattern[$CellContext`k, 
-          Blank[Integer]]] := If[
-         Or[$CellContext`k == 0, $CellContext`k > Length[
-            Part[$CellContext`B, 1]]], $CellContext`B, 
-         Table[
-          If[
-           
-           Or[$CellContext`i == $CellContext`k, $CellContext`j == \
-$CellContext`k], -Part[$CellContext`B, $CellContext`i, $CellContext`j], 
-           Part[$CellContext`B, $CellContext`i, $CellContext`j] + Sign[
-              Part[$CellContext`B, $CellContext`i, $CellContext`k]] 
-            Max[{0, Part[$CellContext`B, $CellContext`i, $CellContext`k] 
-               Part[$CellContext`B, $CellContext`k, $CellContext`j]}]], \
-{$CellContext`i, 
-           Length[
-            Part[$CellContext`B, 1]]}, {$CellContext`j, 
-           Length[
-            Part[$CellContext`B, 1]]}]], $CellContext`j = 
-       3, $CellContext`gData = {
-        1 -> 2, 1 -> 2, 1 -> 2, 3 -> 1, 3 -> 1, 3 -> 1, 2 -> 3, 2 -> 3, 2 -> 
-         3}, $CellContext`QuiverEdges[
-         Pattern[$CellContext`B, 
-          Blank[]]] := Module[{$CellContext`n = Length[
-            
-            Part[$CellContext`B, 
-             1]], $CellContext`edges = {}, $CellContext`k}, Do[
-           Do[
-            If[Part[$CellContext`B, $CellContext`i, $CellContext`j] > 0, 
-             
-             For[$CellContext`k = 1, $CellContext`k <= 
-              Part[$CellContext`B, $CellContext`i, $CellContext`j], 
-              Increment[$CellContext`k], 
-              AppendTo[$CellContext`edges, $CellContext`i -> $CellContext`j]], 
-             If[Part[$CellContext`B, $CellContext`i, $CellContext`j] < 0, 
-              
-              For[$CellContext`k = 
-               1, $CellContext`k <= -
-                Part[$CellContext`B, $CellContext`i, $CellContext`j], 
-               Increment[$CellContext`k], 
-               
-               AppendTo[$CellContext`edges, $CellContext`j -> \
-$CellContext`i]]]], {$CellContext`j, $CellContext`i + 
-             1, $CellContext`n}], {$CellContext`i, $CellContext`n}]; \
-$CellContext`edges]}; Typeset`initDone$$ = True),
-    SynchronousInitialization->True,
-    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
-    UnsavedVariables:>{Typeset`initDone$$},
-    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
-   Deployed->True,
-   StripOnInput->False],
-  Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.8945428851656237`*^9, 3.894542889055402*^9}},
- CellLabel->"Out[14]=",ExpressionUUID->"085d6739-07dc-4a6b-86ae-d71c511d6712"]
-}, Open  ]]
-}, Open  ]],
-
-Cell[CellGroupData[{
-
-Cell["A 4-node quiver", "Subsection",
- CellChangeTimes->{{3.725528439462122*^9, 3.725528451270318*^9}, {
-  3.834741449876209*^9, 3.83474145049336*^9}, {3.834741487922885*^9, 
-  3.8347415006940155`*^9}, {3.8347427054129734`*^9, 3.834742708525757*^9}, {
-  3.8348135056435785`*^9, 3.8348135089563775`*^9}, {3.834813604904926*^9, 
-  3.8348136089570932`*^9}, {3.834814216244377*^9, 3.834814217790519*^9}, {
-  3.8348142949085135`*^9, 3.83481429504321*^9}, {3.834814947833744*^9, 
-  3.8348149493329463`*^9}, {3.894542797911916*^9, 
-  3.8945428056920204`*^9}},ExpressionUUID->"5d01314e-af4e-4cc7-855c-\
-4769f46bc900"],
-
-Cell[CellGroupData[{
-
-Cell[BoxData[{
- RowBox[{
-  RowBox[{"Q3", "=", 
-   RowBox[{"{", 
-    RowBox[{
-     RowBox[{"{", 
-      RowBox[{"0", ",", "2", ",", "0", ",", 
-       RowBox[{"-", "2"}]}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{
-       RowBox[{"-", "2"}], ",", "0", ",", "2", ",", "0"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"0", ",", 
-       RowBox[{"-", "2"}], ",", "0", ",", "2"}], "}"}], ",", 
-     RowBox[{"{", 
-      RowBox[{"2", ",", "0", ",", 
-       RowBox[{"-", "2"}], ",", "0"}], "}"}]}], "}"}]}], 
-  ";"}], "\[IndentingNewLine]", 
- RowBox[{"DrawQuiverInt", "[", "Q3", "]"}]}], "Input",
- CellChangeTimes->{{3.894542938774869*^9, 3.894542981245736*^9}},
- CellLabel->"In[19]:=",ExpressionUUID->"8a392b2d-4273-4f05-9b9e-f6bd9fe5c43b"],
-
-Cell[BoxData[
- TagBox[
-  StyleBox[
-   DynamicModuleBox[{$CellContext`no$$ = 
-    4, $CellContext`pts$$ = {{2^Rational[-1, 2], -2^Rational[-1, 2]}, {
-     2^Rational[-1, 2], 2^Rational[-1, 2]}, {-2^Rational[-1, 2], 2^
-      Rational[-1, 2]}, {-2^Rational[-1, 2], -2^
-       Rational[-1, 2]}}, $CellContext`vector$$ = {0, 0, 0, 0, 0, 0, 0, 0, 0, 
-    0}, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
-    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
-    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
-       Hold[$CellContext`vector$$], {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}}, {{
-       Hold[$CellContext`no$$], 4, "Number of Mutations"}, 1, 10, 1}, {
-      Hold[
-       Row[{
-         Spacer[25], 
-         Manipulate`Place[1]}]], Manipulate`Dump`ThisIsNotAControl}, {
-      Hold[
-       Dynamic[
-        Panel[
-         Row[
-          Outer[PopupMenu[
-            Dynamic[
-             Part[$CellContext`vector$$, #]], 
-            Table[$CellContext`i, {$CellContext`i, 0, $CellContext`n, 1}]]& , 
-           Range[$CellContext`no$$]]], "Mutation Sequence"]]], 
-      Manipulate`Dump`ThisIsNotAControl}, {{
-       Hold[$CellContext`pts$$], {{2^Rational[-1, 2], -2^Rational[-1, 2]}, {
-        2^Rational[-1, 2], 2^Rational[-1, 2]}, {-2^Rational[-1, 2], 2^
-         Rational[-1, 2]}, {-2^Rational[-1, 2], -2^Rational[-1, 2]}}}, 
-      Automatic}}, Typeset`size$$ = {
-    425., {104.06392818060704`, 108.93607181939296`}}, Typeset`update$$ = 0, 
-    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
-    DynamicBox[Manipulate`ManipulateBoxes[
-     2, StandardForm, 
-      "Variables" :> {$CellContext`no$$ = 
-        4, $CellContext`pts$$ = {{2^Rational[-1, 2], -2^Rational[-1, 2]}, {
-          2^Rational[-1, 2], 2^Rational[-1, 2]}, {-2^Rational[-1, 2], 2^
-           Rational[-1, 2]}, {-2^Rational[-1, 2], -2^
-            Rational[-1, 2]}}, $CellContext`vector$$ = {0, 0, 0, 0, 0, 0, 0, 
-         0, 0, 0}}, "ControllerVariables" :> {}, 
-      "OtherVariables" :> {
-       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
-        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
-        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
-         Typeset`skipInitDone$$}, 
-      "Body" :> ($CellContext`Data = $CellContext`Xmutations[{{0, 2, 
-          0, -2}, {-2, 0, 2, 0}, {0, -2, 0, 2}, {2, 0, -2, 0}}, 
-          
-          Take[$CellContext`vector$$, $CellContext`no$$]]; $CellContext`gData = \
-$CellContext`QuiverEdges[$CellContext`Data]; $CellContext`n = 
-        Length[$CellContext`Data]; Column[{
-          
-          GraphPlot[$CellContext`gData, DirectedEdges -> True, MultiedgeStyle -> 
-           True, VertexLabeling -> True, VertexCoordinateRules -> 
-           Table[$CellContext`i -> 
-             Part[$CellContext`pts$$, $CellContext`i], {$CellContext`i, \
-$CellContext`n}], ImageSize -> {500, 250}]}, Center, 2]), 
-      "Specifications" :> {{{$CellContext`vector$$, {0, 0, 0, 0, 0, 0, 0, 0, 
-          0, 0}}, ControlType -> 
-         None}, {{$CellContext`no$$, 4, "Number of Mutations"}, 1, 10, 1, 
-         ControlPlacement -> 1}, 
-        Row[{
-          Spacer[25], 
-          Manipulate`Place[1]}], 
-        Dynamic[
-         Panel[
-          Row[
-           Outer[PopupMenu[
-             Dynamic[
-              Part[$CellContext`vector$$, #]], 
-             Table[$CellContext`i, {$CellContext`i, 0, $CellContext`n, 1}]]& , 
-            Range[$CellContext`no$$]]], 
-          "Mutation Sequence"]], {{$CellContext`pts$$, {{
-           2^Rational[-1, 2], -2^Rational[-1, 2]}, {
-           2^Rational[-1, 2], 2^Rational[-1, 2]}, {-2^Rational[-1, 2], 2^
-            Rational[-1, 2]}, {-2^Rational[-1, 2], -2^Rational[-1, 2]}}}, 
-         Automatic, ControlType -> Locator}}, 
-      "Options" :> {
-       ContentSize -> {600, 300}, 
-        TrackedSymbols :> {$CellContext`vector$$, $CellContext`no$$, \
-$CellContext`pts$$}}, "DefaultOptions" :> {}],
-     ImageSizeCache->{525., {181.06392818060704`, 185.93607181939296`}},
-     SingleEvaluation->True],
-    Deinitialization:>None,
-    DynamicModuleValues:>{},
-    Initialization:>({$CellContext`Data = {{0, 2, 0, -2}, {-2, 0, 2, 0}, {0, 
-        2, 0, -2}, {2, 0, -2, 0}}, $CellContext`Xmutations[
-         Pattern[$CellContext`seed, 
-          Blank[]], 
-         Pattern[$CellContext`v, 
-          Blank[]]] := 
-       Fold[$CellContext`Xmutation, $CellContext`seed, $CellContext`v], \
-$CellContext`v[
-         Pattern[$CellContext`M, 
-          Blank[]]] := 
-       2 Sum[(Part[$CellContext`\[Zeta]1UU, $CellContext`i, $CellContext`a] 
-           Part[
-             $CellContext`\[Gamma][$CellContext`M], $CellContext`a, \
-$CellContext`b]) 
-          Part[$CellContext`\[Zeta]2dd, $CellContext`i, $CellContext`b], \
-{$CellContext`i, 1, 2}, {$CellContext`a, 1, 4}, {$CellContext`b, 1, 
-           4}], $CellContext`\[Zeta]1UU = {{0, 0, 0, 0}, {0, 0, 0, 
-        1}}, $CellContext`\[Gamma][1] = {{0, 0, 0, 1}, {0, 0, 1, 0}, {0, 1, 0,
-         0}, {1, 0, 0, 0}}, $CellContext`\[Gamma][
+        1}}, $CellContext`a = {{1, 2, 3, 4}, {4, 5, 6, 7}, {8, 9, 10, 11}, {
+        12, 13, 14, 15}}, $CellContext`\[Gamma] = {
+         Sqrt[2], 0}, $CellContext`\[Gamma][1] = {{0, 0, 0, 1}, {0, 0, 1, 
+        0}, {0, 1, 0, 0}, {1, 0, 0, 0}}, $CellContext`\[Gamma][
         2] = {{0, 0, 0, -I}, {0, 0, I, 0}, {0, -I, 0, 0}, {
          I, 0, 0, 0}}, $CellContext`\[Gamma][3] = {{0, 0, 1, 0}, {0, 0, 
         0, -1}, {1, 0, 0, 0}, {0, -1, 0, 0}}, $CellContext`\[Gamma][
@@ -1536,7 +1400,8 @@ $CellContext`p, $CellContext`q] = (1/Factorial[4]) (Dot[
             $CellContext`\[Gamma][$CellContext`p], 
             $CellContext`\[Gamma][$CellContext`m], 
             $CellContext`\[Gamma][$CellContext`n]]))), $CellContext`n = 
-       4, $CellContext`\[Zeta]2dd = {{0, 0, 0, 0}, {0, 0, 0, 
+       3, $CellContext`b = 
+       1, $CellContext`\[Zeta]2dd = {{0, 0, 0, 0}, {0, 0, 0, 
         1}}, $CellContext`Xmutation[
          Pattern[$CellContext`seed, 
           Blank[]], 
@@ -1584,7 +1449,7 @@ $CellContext`k], -Part[$CellContext`B, $CellContext`i, $CellContext`j],
            Length[
             Part[$CellContext`B, 1]]}]], $CellContext`j = 
        3, $CellContext`gData = {
-        1 -> 2, 1 -> 2, 4 -> 1, 4 -> 1, 2 -> 3, 2 -> 3, 4 -> 3, 4 -> 
+        1 -> 2, 1 -> 2, 1 -> 2, 3 -> 1, 3 -> 1, 3 -> 1, 2 -> 3, 2 -> 3, 2 -> 
          3}, $CellContext`QuiverEdges[
          Pattern[$CellContext`B, 
           Blank[]]] := Module[{$CellContext`n = Length[
@@ -1616,10 +1481,516 @@ $CellContext`edges]}; Typeset`initDone$$ = True),
    Deployed->True,
    StripOnInput->False],
   Manipulate`InterpretManipulate[1]]], "Output",
- CellChangeTimes->{{3.894542969830678*^9, 3.894542981605344*^9}},
- CellLabel->"Out[20]=",ExpressionUUID->"8dc4cef1-5d8d-45f3-8039-bd7a1e7f907a"]
+ CellChangeTimes->{{3.8945428851656237`*^9, 3.894542889055402*^9}, {
+  3.894811692357786*^9, 3.8948116940344524`*^9}},
+ CellLabel->"Out[25]=",ExpressionUUID->"211cc4ff-9b54-4acc-9721-b0bff16d6fc3"]
+}, Open  ]],
+
+Cell["\<\
+We use a basis of magnetic-electric states {1,0}, {1,-3}, {-2,3}, and then \
+mutate on nodes 3 and then 1 - for the value of the charges, it matters \
+whether we do clockwise or anti-clockwise mutations\
+\>", "Text",
+ CellChangeTimes->{{3.894811717999242*^9, 3.8948117532622433`*^9}, {
+  3.8948117893799667`*^9, 
+  3.89481183320693*^9}},ExpressionUUID->"1b6266b8-432a-4940-a0fb-\
+05c17d9c0fd3"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   RowBox[{
+    RowBox[{"Q2", "=", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", 
+         RowBox[{"-", "3"}]}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{
+         RowBox[{"-", "2"}], ",", "3"}], "}"}]}], "}"}]}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"MutationsForCharges", "[", 
+    RowBox[{"Q2", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"3", ",", "0"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "0"}], "}"}]}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"MutationsForCharges", "[", 
+    RowBox[{"Q2", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"3", ",", "1"}], "}"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"1", ",", "1"}], "}"}]}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]"}], 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"0", " ", "or", " ", "1"}], ",", " ", 
+    RowBox[{
+     RowBox[{"for", " ", "clockwise", " ", "or", " ", "counter"}], "-", 
+     RowBox[{"clockwise", " ", "rotations"}]}]}], " ", "*)"}]}]], "Input",
+ CellChangeTimes->{{3.894811764938122*^9, 3.8948117868087482`*^9}, {
+  3.8948118377807837`*^9, 3.894811853229633*^9}},
+ CellLabel->"In[30]:=",ExpressionUUID->"2ef2acae-004f-4f50-b89d-140dfc75bb16"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "1"}], ",", "0"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", "6"}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"2", ",", 
+     RowBox[{"-", "3"}]}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.894811783316278*^9, 3.894811787064835*^9}, 
+   3.894811853828173*^9},
+ CellLabel->"Out[31]=",ExpressionUUID->"3f14f040-6dc1-4bfc-aaa6-40161548fdf9"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{"5", ",", 
+     RowBox[{"-", "9"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{"1", ",", 
+     RowBox[{"-", "3"}]}], "}"}], ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"-", "13"}], ",", "24"}], "}"}]}], "}"}]], "Output",
+ CellChangeTimes->{{3.894811783316278*^9, 3.894811787064835*^9}, 
+   3.894811853839862*^9},
+ CellLabel->"Out[32]=",ExpressionUUID->"c8361d75-c2e3-441b-940a-640c4a473ed9"]
 }, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["A 4-node quiver", "Subsection",
+ CellChangeTimes->{{3.725528439462122*^9, 3.725528451270318*^9}, {
+  3.834741449876209*^9, 3.83474145049336*^9}, {3.834741487922885*^9, 
+  3.8347415006940155`*^9}, {3.8347427054129734`*^9, 3.834742708525757*^9}, {
+  3.8348135056435785`*^9, 3.8348135089563775`*^9}, {3.834813604904926*^9, 
+  3.8348136089570932`*^9}, {3.834814216244377*^9, 3.834814217790519*^9}, {
+  3.8348142949085135`*^9, 3.83481429504321*^9}, {3.834814947833744*^9, 
+  3.8348149493329463`*^9}, {3.894542797911916*^9, 
+  3.8945428056920204`*^9}},ExpressionUUID->"5d01314e-af4e-4cc7-855c-\
+4769f46bc900"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"B3", "=", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{"0", ",", "2", ",", "0", ",", 
+       RowBox[{"-", "2"}]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"-", "2"}], ",", "0", ",", "2", ",", "0"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"0", ",", 
+       RowBox[{"-", "2"}], ",", "0", ",", "2"}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"2", ",", "0", ",", 
+       RowBox[{"-", "2"}], ",", "0"}], "}"}]}], "}"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"DrawQuiverInt", "[", "B3", "]"}]}], "Input",
+ CellChangeTimes->{{3.894542938774869*^9, 3.894542981245736*^9}, {
+  3.8948118662322397`*^9, 3.894811868370492*^9}},
+ CellLabel->"In[37]:=",ExpressionUUID->"8a392b2d-4273-4f05-9b9e-f6bd9fe5c43b"],
+
+Cell[BoxData[
+ TagBox[
+  StyleBox[
+   DynamicModuleBox[{$CellContext`no$$ = 
+    4, $CellContext`pts$$ = {{2^Rational[-1, 2], -2^Rational[-1, 2]}, {
+     2^Rational[-1, 2], 2^Rational[-1, 2]}, {-2^Rational[-1, 2], 2^
+      Rational[-1, 2]}, {-2^Rational[-1, 2], -2^
+       Rational[-1, 2]}}, $CellContext`vector$$ = {0, 0, 0, 0, 0, 0, 0, 0, 0, 
+    0}, Typeset`show$$ = True, Typeset`bookmarkList$$ = {}, 
+    Typeset`bookmarkMode$$ = "Menu", Typeset`animator$$, Typeset`animvar$$ = 
+    1, Typeset`name$$ = "\"untitled\"", Typeset`specs$$ = {{{
+       Hold[$CellContext`vector$$], {0, 0, 0, 0, 0, 0, 0, 0, 0, 0}}}, {{
+       Hold[$CellContext`no$$], 4, "Number of Mutations"}, 1, 10, 1}, {
+      Hold[
+       Row[{
+         Spacer[25], 
+         Manipulate`Place[1]}]], Manipulate`Dump`ThisIsNotAControl}, {
+      Hold[
+       Dynamic[
+        Panel[
+         Row[
+          Outer[PopupMenu[
+            Dynamic[
+             Part[$CellContext`vector$$, #]], 
+            Table[$CellContext`i, {$CellContext`i, 0, $CellContext`n, 1}]]& , 
+           Range[$CellContext`no$$]]], "Mutation Sequence"]]], 
+      Manipulate`Dump`ThisIsNotAControl}, {{
+       Hold[$CellContext`pts$$], {{2^Rational[-1, 2], -2^Rational[-1, 2]}, {
+        2^Rational[-1, 2], 2^Rational[-1, 2]}, {-2^Rational[-1, 2], 2^
+         Rational[-1, 2]}, {-2^Rational[-1, 2], -2^Rational[-1, 2]}}}, 
+      Automatic}}, Typeset`size$$ = {
+    425., {104.06392818060704`, 108.93607181939296`}}, Typeset`update$$ = 0, 
+    Typeset`initDone$$, Typeset`skipInitDone$$ = False}, 
+    DynamicBox[Manipulate`ManipulateBoxes[
+     2, StandardForm, 
+      "Variables" :> {$CellContext`no$$ = 
+        4, $CellContext`pts$$ = {{2^Rational[-1, 2], -2^Rational[-1, 2]}, {
+          2^Rational[-1, 2], 2^Rational[-1, 2]}, {-2^Rational[-1, 2], 2^
+           Rational[-1, 2]}, {-2^Rational[-1, 2], -2^
+            Rational[-1, 2]}}, $CellContext`vector$$ = {0, 0, 0, 0, 0, 0, 0, 
+         0, 0, 0}}, "ControllerVariables" :> {}, 
+      "OtherVariables" :> {
+       Typeset`show$$, Typeset`bookmarkList$$, Typeset`bookmarkMode$$, 
+        Typeset`animator$$, Typeset`animvar$$, Typeset`name$$, 
+        Typeset`specs$$, Typeset`size$$, Typeset`update$$, Typeset`initDone$$,
+         Typeset`skipInitDone$$}, 
+      "Body" :> ($CellContext`Data = $CellContext`Xmutations[{{0, 2, 
+          0, -2}, {-2, 0, 2, 0}, {0, -2, 0, 2}, {2, 0, -2, 0}}, 
+          
+          Take[$CellContext`vector$$, $CellContext`no$$]]; $CellContext`gData = \
+$CellContext`QuiverEdges[$CellContext`Data]; $CellContext`n = 
+        Length[$CellContext`Data]; Column[{
+          
+          GraphPlot[$CellContext`gData, DirectedEdges -> True, MultiedgeStyle -> 
+           True, VertexLabeling -> True, VertexCoordinateRules -> 
+           Table[$CellContext`i -> 
+             Part[$CellContext`pts$$, $CellContext`i], {$CellContext`i, \
+$CellContext`n}], ImageSize -> {500, 250}]}, Center, 2]), 
+      "Specifications" :> {{{$CellContext`vector$$, {0, 0, 0, 0, 0, 0, 0, 0, 
+          0, 0}}, ControlType -> 
+         None}, {{$CellContext`no$$, 4, "Number of Mutations"}, 1, 10, 1, 
+         ControlPlacement -> 1}, 
+        Row[{
+          Spacer[25], 
+          Manipulate`Place[1]}], 
+        Dynamic[
+         Panel[
+          Row[
+           Outer[PopupMenu[
+             Dynamic[
+              Part[$CellContext`vector$$, #]], 
+             Table[$CellContext`i, {$CellContext`i, 0, $CellContext`n, 1}]]& , 
+            Range[$CellContext`no$$]]], 
+          "Mutation Sequence"]], {{$CellContext`pts$$, {{
+           2^Rational[-1, 2], -2^Rational[-1, 2]}, {
+           2^Rational[-1, 2], 2^Rational[-1, 2]}, {-2^Rational[-1, 2], 2^
+            Rational[-1, 2]}, {-2^Rational[-1, 2], -2^Rational[-1, 2]}}}, 
+         Automatic, ControlType -> Locator}}, 
+      "Options" :> {
+       ContentSize -> {600, 300}, 
+        TrackedSymbols :> {$CellContext`vector$$, $CellContext`no$$, \
+$CellContext`pts$$}}, "DefaultOptions" :> {}],
+     ImageSizeCache->{525., {181.06392818060704`, 185.93607181939296`}},
+     SingleEvaluation->True],
+    Deinitialization:>None,
+    DynamicModuleValues:>{},
+    Initialization:>({$CellContext`Data = {{0, 2, 0, -2}, {-2, 0, 2, 0}, {
+        0, -2, 0, 2}, {2, 0, -2, 0}}, $CellContext`Xmutations[
+         Pattern[$CellContext`seed, 
+          Blank[]], 
+         Pattern[$CellContext`v, 
+          Blank[]]] := 
+       Fold[$CellContext`Xmutation, $CellContext`seed, $CellContext`v], \
+$CellContext`v[
+         Pattern[$CellContext`M, 
+          Blank[]]] := 
+       2 Sum[(Part[$CellContext`\[Zeta]1UU, $CellContext`i, $CellContext`a] 
+           Part[
+             $CellContext`\[Gamma][$CellContext`M], $CellContext`a, \
+$CellContext`b]) 
+          Part[$CellContext`\[Zeta]2dd, $CellContext`i, $CellContext`b], \
+{$CellContext`i, 1, 2}, {$CellContext`a, 1, 4}, {$CellContext`b, 1, 
+           4}], $CellContext`\[Zeta]1UU = {{0, 0, 0, 0}, {0, 0, 0, 
+        1}}, $CellContext`a = {{1, 2, 3, 4}, {4, 5, 6, 7}, {8, 9, 10, 11}, {
+        12, 13, 14, 15}}, $CellContext`\[Gamma] = {
+         Sqrt[2], 0}, $CellContext`\[Gamma][1] = {{0, 0, 0, 1}, {0, 0, 1, 
+        0}, {0, 1, 0, 0}, {1, 0, 0, 0}}, $CellContext`\[Gamma][
+        2] = {{0, 0, 0, -I}, {0, 0, I, 0}, {0, -I, 0, 0}, {
+         I, 0, 0, 0}}, $CellContext`\[Gamma][3] = {{0, 0, 1, 0}, {0, 0, 
+        0, -1}, {1, 0, 0, 0}, {0, -1, 0, 0}}, $CellContext`\[Gamma][
+        4] = {{0, 0, I, 0}, {0, 0, 0, I}, {-I, 0, 0, 0}, {
+         0, -I, 0, 0}}, $CellContext`\[Gamma][5] = {{1, 0, 0, 0}, {0, 1, 0, 
+        0}, {0, 0, -1, 0}, {0, 0, 0, -1}}, $CellContext`\[Gamma][5, 1, 1] = {{
+        0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 
+        0}}, $CellContext`\[Gamma][
+        5, 1, 2] = {{I, 0, 0, 0}, {0, -I, 0, 0}, {0, 0, -I, 0}, {
+         0, 0, 0, I}}, $CellContext`\[Gamma][5, 1, 3] = {{0, -1, 0, 0}, {1, 0,
+         0, 0}, {0, 0, 0, 1}, {0, 0, -1, 0}}, $CellContext`\[Gamma][
+        5, 1, 4] = {{0, -I, 0, 0}, {-I, 0, 0, 0}, {0, 0, 0, -I}, {
+         0, 0, -I, 0}}, $CellContext`\[Gamma][5, 1, 5] = {{0, 0, 0, 0}, {0, 0,
+         0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
+        5, 2, 1] = {{-I, 0, 0, 0}, {0, I, 0, 0}, {0, 0, I, 0}, {
+         0, 0, 0, -I}}, $CellContext`\[Gamma][5, 2, 2] = {{0, 0, 0, 0}, {0, 0,
+         0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
+        5, 2, 3] = {{0, I, 0, 0}, {I, 0, 0, 0}, {0, 0, 0, -I}, {
+         0, 0, -I, 0}}, $CellContext`\[Gamma][5, 2, 4] = {{0, -1, 0, 0}, {1, 
+        0, 0, 0}, {0, 0, 0, -1}, {0, 0, 1, 0}}, $CellContext`\[Gamma][
+        5, 2, 5] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 
+        0}}, $CellContext`\[Gamma][5, 3, 1] = {{0, 1, 0, 0}, {-1, 0, 0, 0}, {
+        0, 0, 0, -1}, {0, 0, 1, 0}}, $CellContext`\[Gamma][
+        5, 3, 2] = {{0, -I, 0, 0}, {-I, 0, 0, 0}, {0, 0, 0, I}, {
+         0, 0, I, 0}}, $CellContext`\[Gamma][5, 3, 3] = {{0, 0, 0, 0}, {0, 0, 
+        0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
+        5, 3, 4] = {{-I, 0, 0, 0}, {0, I, 0, 0}, {0, 0, -I, 0}, {
+         0, 0, 0, I}}, $CellContext`\[Gamma][5, 3, 5] = {{0, 0, 0, 0}, {0, 0, 
+        0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
+        5, 4, 1] = {{0, I, 0, 0}, {I, 0, 0, 0}, {0, 0, 0, I}, {
+         0, 0, I, 0}}, $CellContext`\[Gamma][5, 4, 2] = {{0, 1, 0, 0}, {-1, 0,
+         0, 0}, {0, 0, 0, 1}, {0, 0, -1, 0}}, $CellContext`\[Gamma][
+        5, 4, 3] = {{I, 0, 0, 0}, {0, -I, 0, 0}, {0, 0, I, 0}, {
+         0, 0, 0, -I}}, $CellContext`\[Gamma][5, 4, 4] = {{0, 0, 0, 0}, {0, 0,
+         0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
+        5, 4, 5] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 
+        0}}, $CellContext`\[Gamma][5, 5, 1] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0,
+         0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][5, 5, 2] = {{0, 0, 0, 
+        0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
+        5, 5, 3] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 
+        0}}, $CellContext`\[Gamma][5, 5, 4] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0,
+         0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][5, 5, 5] = {{0, 0, 0, 
+        0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}}, $CellContext`\[Gamma][
+         Pattern[$CellContext`m, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          
+          Blank[]]] := ($CellContext`\[Gamma][$CellContext`m, $CellContext`n] = \
+(1/2) (Dot[
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`n]] - Dot[
+           $CellContext`\[Gamma][$CellContext`n], 
+           $CellContext`\[Gamma][$CellContext`m]])), $CellContext`\[Gamma][
+         Pattern[$CellContext`m, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          
+          Blank[]]] := ($CellContext`\[Gamma][$CellContext`m, $CellContext`n, \
+$CellContext`p] = (1/Factorial[3]) (Dot[
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`p]] - Dot[
+           $CellContext`\[Gamma][$CellContext`m], 
+           $CellContext`\[Gamma][$CellContext`p], 
+           $CellContext`\[Gamma][$CellContext`n]] - Dot[
+           $CellContext`\[Gamma][$CellContext`n], 
+           $CellContext`\[Gamma][$CellContext`m], 
+           $CellContext`\[Gamma][$CellContext`p]] + Dot[
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`m]] - Dot[
+           $CellContext`\[Gamma][$CellContext`p], 
+           $CellContext`\[Gamma][$CellContext`n], 
+           $CellContext`\[Gamma][$CellContext`m]] + Dot[
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`n]])), $CellContext`\[Gamma][
+         Pattern[$CellContext`m, 
+          Blank[]], 
+         Pattern[$CellContext`n, 
+          Blank[]], 
+         Pattern[$CellContext`p, 
+          Blank[]], 
+         Pattern[$CellContext`q, 
+          
+          Blank[]]] := ($CellContext`\[Gamma][$CellContext`m, $CellContext`n, \
+$CellContext`p, $CellContext`q] = (1/Factorial[4]) (Dot[
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`q]] + Dot[
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`n]] + Dot[
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`p]] + Dot[
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`p]] + Dot[
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`q]] + Dot[
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`m]] + Dot[
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`q]] + Dot[
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`m]] + Dot[
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`n]] + Dot[
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`n]] + Dot[
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`p]] + Dot[
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`m]] - (Dot[
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`p]] + Dot[
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`q]] + Dot[
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`n]] + Dot[
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`q]] + Dot[
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`m]] + Dot[
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`p]] + Dot[
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`n]] + Dot[
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`q]] + Dot[
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`m]] + Dot[
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`p]] + Dot[
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`n], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`m]] + Dot[
+            $CellContext`\[Gamma][$CellContext`q], 
+            $CellContext`\[Gamma][$CellContext`p], 
+            $CellContext`\[Gamma][$CellContext`m], 
+            $CellContext`\[Gamma][$CellContext`n]]))), $CellContext`n = 
+       4, $CellContext`b = 
+       1, $CellContext`\[Zeta]2dd = {{0, 0, 0, 0}, {0, 0, 0, 
+        1}}, $CellContext`Xmutation[
+         Pattern[$CellContext`seed, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[Integer]]] := 
+       Module[{$CellContext`B = $CellContext`seed, $CellContext`n = Length[
+            
+            Part[$CellContext`seed, 1, 
+             1]], $CellContext`pos, $CellContext`neg}, 
+         If[
+          Or[$CellContext`k == 0, $CellContext`k > Length[
+             Part[$CellContext`B, 1]]], $CellContext`B, $CellContext`pos = 
+           DeleteCases[
+             Table[
+              If[
+              Part[$CellContext`B, $CellContext`i, $CellContext`k] > 
+               0, $CellContext`i], {$CellContext`i, $CellContext`n}], 
+             Null]; $CellContext`neg = DeleteCases[
+             Table[
+              If[
+              Part[$CellContext`B, $CellContext`i, $CellContext`k] < 
+               0, $CellContext`i], {$CellContext`i, $CellContext`n}], 
+             Null]; $CellContext`Qmutation[$CellContext`B, $CellContext`k]]], \
+$CellContext`B = {{0, -1, 0, 1, 0, 0}, {1, 0, 0, -1, 0, 1}, {0, 0, 0, 1, -1, 
+        0}, {-1, 1, -1, 0, 1, -1}, {0, 0, 1, -1, 0, 1}, {0, -1, 0, 1, -1, 
+        0}}, $CellContext`Qmutation[
+         Pattern[$CellContext`B, 
+          Blank[]], 
+         Pattern[$CellContext`k, 
+          Blank[Integer]]] := If[
+         Or[$CellContext`k == 0, $CellContext`k > Length[
+            Part[$CellContext`B, 1]]], $CellContext`B, 
+         Table[
+          If[
+           
+           Or[$CellContext`i == $CellContext`k, $CellContext`j == \
+$CellContext`k], -Part[$CellContext`B, $CellContext`i, $CellContext`j], 
+           Part[$CellContext`B, $CellContext`i, $CellContext`j] + Sign[
+              Part[$CellContext`B, $CellContext`i, $CellContext`k]] 
+            Max[{0, Part[$CellContext`B, $CellContext`i, $CellContext`k] 
+               Part[$CellContext`B, $CellContext`k, $CellContext`j]}]], \
+{$CellContext`i, 
+           Length[
+            Part[$CellContext`B, 1]]}, {$CellContext`j, 
+           Length[
+            Part[$CellContext`B, 1]]}]], $CellContext`j = 
+       3, $CellContext`gData = {
+        1 -> 2, 1 -> 2, 4 -> 1, 4 -> 1, 2 -> 3, 2 -> 3, 3 -> 4, 3 -> 
+         4}, $CellContext`QuiverEdges[
+         Pattern[$CellContext`B, 
+          Blank[]]] := Module[{$CellContext`n = Length[
+            
+            Part[$CellContext`B, 
+             1]], $CellContext`edges = {}, $CellContext`k}, Do[
+           Do[
+            If[Part[$CellContext`B, $CellContext`i, $CellContext`j] > 0, 
+             
+             For[$CellContext`k = 1, $CellContext`k <= 
+              Part[$CellContext`B, $CellContext`i, $CellContext`j], 
+              Increment[$CellContext`k], 
+              AppendTo[$CellContext`edges, $CellContext`i -> $CellContext`j]], 
+             If[Part[$CellContext`B, $CellContext`i, $CellContext`j] < 0, 
+              
+              For[$CellContext`k = 
+               1, $CellContext`k <= -
+                Part[$CellContext`B, $CellContext`i, $CellContext`j], 
+               Increment[$CellContext`k], 
+               
+               AppendTo[$CellContext`edges, $CellContext`j -> \
+$CellContext`i]]]], {$CellContext`j, $CellContext`i + 
+             1, $CellContext`n}], {$CellContext`i, $CellContext`n}]; \
+$CellContext`edges]}; Typeset`initDone$$ = True),
+    SynchronousInitialization->True,
+    UndoTrackedVariables:>{Typeset`show$$, Typeset`bookmarkMode$$},
+    UnsavedVariables:>{Typeset`initDone$$},
+    UntrackedVariables:>{Typeset`size$$}], "Manipulate",
+   Deployed->True,
+   StripOnInput->False],
+  Manipulate`InterpretManipulate[1]]], "Output",
+ CellChangeTimes->{{3.894542969830678*^9, 3.894542981605344*^9}, 
+   3.8947046283054667`*^9, {3.8948118623855906`*^9, 3.894811868718435*^9}},
+ CellLabel->"Out[38]=",ExpressionUUID->"93ad981f-55ad-4e9a-87a8-efd683e2fa52"]
 }, Open  ]]
+}, Closed]]
 }, Open  ]]
 }, Open  ]]
 },
@@ -1646,36 +2017,55 @@ Notebook[{
 Cell[CellGroupData[{
 Cell[580, 22, 237, 4, 58, "Chapter",ExpressionUUID->"d90cc9ee-2f1b-4f3e-b72d-3d49e4e77ba1"],
 Cell[CellGroupData[{
-Cell[842, 30, 334, 5, 54, "Subchapter",ExpressionUUID->"f95585d2-5acf-4389-bb5d-08c192ce9439"],
+Cell[842, 30, 361, 6, 54, "Subchapter",ExpressionUUID->"f95585d2-5acf-4389-bb5d-08c192ce9439"],
 Cell[CellGroupData[{
-Cell[1201, 39, 464, 7, 28, "Subsection",ExpressionUUID->"6a42b6d5-6751-419f-9d71-d4d0aee15f98"],
-Cell[1668, 48, 10431, 282, 622, "Input",ExpressionUUID->"d94711c3-376e-4dbd-a5f5-26b444cbba5a"],
-Cell[12102, 332, 1784, 47, 164, "Input",ExpressionUUID->"f3e731be-1b2e-4e0d-818c-4044e9012181"]
+Cell[1228, 40, 464, 7, 28, "Subsection",ExpressionUUID->"6a42b6d5-6751-419f-9d71-d4d0aee15f98"],
+Cell[1695, 49, 10642, 285, 654, "Input",ExpressionUUID->"d94711c3-376e-4dbd-a5f5-26b444cbba5a"],
+Cell[12340, 336, 189, 3, 28, "Text",ExpressionUUID->"1706c88f-44c5-463b-8494-c27eaea1e377"],
+Cell[12532, 341, 1836, 48, 164, "Input",ExpressionUUID->"f3e731be-1b2e-4e0d-818c-4044e9012181"]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[14405, 394, 378, 6, 28, "Subsection",ExpressionUUID->"20f66304-d6f7-43d7-8068-ca5657afd7e0"],
+Cell[14786, 402, 252, 6, 28, "Text",ExpressionUUID->"b170ca7d-8fbe-4051-9b6f-b53d957a470d"],
+Cell[15041, 410, 2321, 52, 99, "Input",ExpressionUUID->"90e87d54-f6fc-466c-a691-6048cd1261e3"],
+Cell[17365, 464, 5842, 142, 454, "Input",ExpressionUUID->"a24336e1-052a-41c1-8361-502f9cf0cad5"]
 }, Closed]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[13935, 385, 385, 6, 54, "Subchapter",ExpressionUUID->"0241a3dc-b3a1-4f48-8c03-458b2dd1ed16"],
+Cell[23256, 612, 385, 6, 54, "Subchapter",ExpressionUUID->"0241a3dc-b3a1-4f48-8c03-458b2dd1ed16"],
 Cell[CellGroupData[{
-Cell[14345, 395, 469, 7, 28, "Subsection",ExpressionUUID->"7076e226-7973-45e9-86d7-0e0ed3f2a3cc"],
+Cell[23666, 622, 469, 7, 28, "Subsection",ExpressionUUID->"7076e226-7973-45e9-86d7-0e0ed3f2a3cc"],
+Cell[24138, 631, 195, 3, 28, "Text",ExpressionUUID->"93d1f786-6330-486d-ab35-f2a791a7f383"],
 Cell[CellGroupData[{
-Cell[14839, 406, 1313, 25, 50, "Input",ExpressionUUID->"18c854bd-2a12-4e19-9b16-45a99b411df1"],
-Cell[16155, 433, 18995, 369, 389, "Output",ExpressionUUID->"5a64c549-4253-4e98-96a6-b510c317349d"]
-}, Open  ]]
+Cell[24358, 638, 1416, 26, 50, "Input",ExpressionUUID->"18c854bd-2a12-4e19-9b16-45a99b411df1"],
+Cell[25777, 666, 19246, 372, 417, "Output",ExpressionUUID->"4fc55c6d-896a-47b5-b5a3-019e32cc53e3"]
 }, Open  ]],
+Cell[45038, 1041, 198, 3, 28, "Text",ExpressionUUID->"62fe74d7-a06c-4ea9-8721-4c988f6a7fc6"],
 Cell[CellGroupData[{
-Cell[35199, 808, 696, 10, 28, "Subsection",ExpressionUUID->"ddf1ee55-f6da-41bb-8930-2e6e5544d2f5"],
-Cell[CellGroupData[{
-Cell[35920, 822, 607, 17, 50, "Input",ExpressionUUID->"5514bb65-fc22-41ea-9887-c18217c0db0e"],
-Cell[36530, 841, 18815, 366, 389, "Output",ExpressionUUID->"085d6739-07dc-4a6b-86ae-d71c511d6712"]
+Cell[45261, 1048, 497, 15, 50, "Input",ExpressionUUID->"d6fb8e12-5625-473c-913f-3dfdc569f8d2"],
+Cell[45761, 1065, 313, 9, 33, "Output",ExpressionUUID->"51aed734-4fac-4fad-9e67-f3a6d03f24cd"]
 }, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[46123, 1080, 696, 10, 28, "Subsection",ExpressionUUID->"ddf1ee55-f6da-41bb-8930-2e6e5544d2f5"],
+Cell[CellGroupData[{
+Cell[46844, 1094, 658, 18, 50, "Input",ExpressionUUID->"5514bb65-fc22-41ea-9887-c18217c0db0e"],
+Cell[47505, 1114, 19034, 371, 389, "Output",ExpressionUUID->"211cc4ff-9b54-4acc-9721-b0bff16d6fc3"]
 }, Open  ]],
+Cell[66554, 1488, 404, 8, 48, "Text",ExpressionUUID->"1b6266b8-432a-4940-a0fb-05c17d9c0fd3"],
 Cell[CellGroupData[{
-Cell[55394, 1213, 609, 9, 28, "Subsection",ExpressionUUID->"5d01314e-af4e-4cc7-855c-4769f46bc900"],
+Cell[66983, 1500, 1403, 42, 99, "Input",ExpressionUUID->"2ef2acae-004f-4f50-b89d-140dfc75bb16"],
+Cell[68389, 1544, 443, 13, 33, "Output",ExpressionUUID->"3f14f040-6dc1-4bfc-aaa6-40161548fdf9"],
+Cell[68835, 1559, 466, 14, 33, "Output",ExpressionUUID->"c8361d75-c2e3-441b-940a-640c4a473ed9"]
+}, Open  ]]
+}, Closed]],
 Cell[CellGroupData[{
-Cell[56028, 1226, 739, 20, 50, "Input",ExpressionUUID->"8a392b2d-4273-4f05-9b9e-f6bd9fe5c43b"],
-Cell[56770, 1248, 19093, 371, 417, "Output",ExpressionUUID->"8dc4cef1-5d8d-45f3-8039-bd7a1e7f907a"]
+Cell[69350, 1579, 609, 9, 28, "Subsection",ExpressionUUID->"5d01314e-af4e-4cc7-855c-4769f46bc900"],
+Cell[CellGroupData[{
+Cell[69984, 1592, 790, 21, 50, "Input",ExpressionUUID->"8a392b2d-4273-4f05-9b9e-f6bd9fe5c43b"],
+Cell[70777, 1615, 19335, 375, 417, "Output",ExpressionUUID->"93ad981f-55ad-4e9a-87a8-efd683e2fa52"]
 }, Open  ]]
-}, Open  ]]
+}, Closed]]
 }, Open  ]]
 }, Open  ]]
 }
